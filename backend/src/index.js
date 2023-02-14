@@ -5,8 +5,11 @@ import routes from './routes/routes.js';
 
 const app = express();
 
+const morgan = require('morgan');
+app.use(morgan('dev'));
+app.use(express.json());
 app.use(routes);
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log(`Listening at http://localhost:${process.env.PORT}/`);
 });
