@@ -4,7 +4,7 @@ name: My first Workflow
 on: 
   push: 
     branches: [ "segunda-lista" ]
-  pull_resquest: 
+  pull_request: 
     branches: [ "segunda-lista" ]
   
   workflow_dispatch:
@@ -20,4 +20,3 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
