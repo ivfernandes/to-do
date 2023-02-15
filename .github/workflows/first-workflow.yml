@@ -1,15 +1,23 @@
 name: My first Workflow
 
 
-on: workflow_dispatch
-
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - 'release*'
+  workflow_dispatch:
 
 jobs:
-  
-  first-job:
+  test:
+    name: Run Tests
     runs-on: ubuntu-latest
-
-   
     steps:
-      - name: Run a one-line script
-        run: echo Hello, world!
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Entrando no front-end
+      run: cd frontend
+    - name: Run tests
+      run: npm test
