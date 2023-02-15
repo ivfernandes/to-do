@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - 'release*'
+      - init-front-end
   workflow_dispatch:
 
 jobs:
