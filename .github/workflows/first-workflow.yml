@@ -21,4 +21,4 @@ jobs:
     - name: Entrando no front-end
       run: cd frontend && ls
     - name: Run tests
-      run: npm test
+      run: npm i && npm test
