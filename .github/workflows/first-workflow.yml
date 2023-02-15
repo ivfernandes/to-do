@@ -19,6 +19,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Entrando no front-end
-      run: cd frontend
+      run: cd frontend && ls
     - name: Run tests
       run: npm test
