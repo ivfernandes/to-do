@@ -1,0 +1,7 @@
+O workflow cujo nome é tests executa um job que possui:
+- o Set up jobs que inicializa e prepara o ambiente para o job
+- running lint,provavelmente um step que executa alguma ferramenta
+nesse caso está executando o lint.
+- running tests,essa etapa parece executar os testes que foram escritos
+pelos desenvolvedores
+- e por fim o complete job,que finaliza a execução desse workflow

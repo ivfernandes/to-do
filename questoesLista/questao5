@@ -1,0 +1,39 @@
+name: Workflow - Questão 5
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - 'release*'
+      - segunda_lista
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: echo "testes"
+  build:
+    name: Run Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: echo "build"
+    needs: tests
+  deploy:
+    name: Run deploy
+    runs-on: ubuntu-latest
+     steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: echo "deploy"
+    needs: [tests,build]

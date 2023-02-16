@@ -1,0 +1,22 @@
+name: Test Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - 'release*'
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: echo "npm install"
+    - name: Run tests
+      run: echo "npm teste"
