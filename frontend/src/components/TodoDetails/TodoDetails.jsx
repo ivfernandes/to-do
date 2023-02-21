@@ -36,7 +36,7 @@ function TodoDetails() {
     };
   
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card style={{ width: '100%' }}>
         <Card.Body>
           <Card.Title>{todo.title}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{todo.createdAt}</Card.Subtitle>
