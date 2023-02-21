@@ -2,8 +2,15 @@ require('dotenv').config()
 
 import express from 'express';
 import routes from './routes/routes.js';
+import cors from 'cors';
 
 const app = express();
+
+const corsOptions = {
+  origin: 'http://localhost:3366'
+};
+
+app.use(cors(corsOptions))
 
 const morgan = require('morgan');
 app.use(morgan('dev'));
