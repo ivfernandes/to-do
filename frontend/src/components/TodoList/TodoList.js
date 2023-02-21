@@ -12,7 +12,7 @@ function TodoList() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setTodos(data);
+        setTodos(data.filter((todo) => !todo.isDone));
       })
       .catch((err) => {
         console.log(err.message);
@@ -26,6 +26,7 @@ function TodoList() {
     fetch(`http://localhost:3000/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ isDone: true })
     })
       .then((response) => response.json())
       .then((data) => {
@@ -52,6 +53,7 @@ function TodoList() {
 
       <ListGroup>
         {todos.map((todo) => (
+          // if (todo.isDone) return null;
           <TodoItem key={todo.id} todo={todo} setAsDone={setAsDone} />
         ))}
       </ListGroup>
