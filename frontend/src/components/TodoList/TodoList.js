@@ -19,7 +19,7 @@ function TodoList() {
       });
   }, []);
 
-  const setAsDone = (e, id, title, description) => {
+  const setAsDone = (e, id) => {
 
     e.preventDefault();
     e.stopPropagation();
