@@ -10,7 +10,7 @@ function TodoCreate() {
   const handleSubmit = () => {
     const todo = { title, description, isDone: false };
     console.log(todo);
-    fetch(process.env.REACT_APP_BACKEND_URL, {
+    fetch("http://localhost:3000/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(todo)

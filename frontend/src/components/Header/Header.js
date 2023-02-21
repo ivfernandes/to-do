@@ -9,7 +9,7 @@ function NavScrollExample() {
   return (
     <Navbar bg="light" expand="lg" className="mb-4">
       <Container fluid>
-        <Navbar.Brand href="#">ToDo App</Navbar.Brand>
+        <Navbar.Brand href="#">ToDo</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav

@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 function TodoList() {
   const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL)
+    fetch("http://localhost:3000/")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -18,11 +19,12 @@ function TodoList() {
       });
   }, []);
 
-  const setAsDone = (e, id) => {
+  const setAsDone = (e, id, title, description) => {
+
     e.preventDefault();
     e.stopPropagation();
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/${id}`, {
-      method: "PATCH",
+    fetch(`http://localhost:3000/${id}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
     })
       .then((response) => response.json())
