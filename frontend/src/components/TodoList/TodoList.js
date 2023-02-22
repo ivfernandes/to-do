@@ -34,6 +34,8 @@ function TodoList() {
       });
   };
 
+
+
   return (
     <div>
       <div
@@ -43,7 +45,7 @@ function TodoList() {
           alignItems: "center",
         }}
       >
-        <h2>Listangem de Todos</h2>
+        <h2>Tarefas To-Do</h2>
         <div>
           <Button onClick={() => navigate("/create")} variant="primary">
             +
@@ -55,8 +57,12 @@ function TodoList() {
         {todos.map((todo) => (
           // if (todo.isDone) return null;
           <TodoItem key={todo.id} todo={todo} setAsDone={setAsDone} />
+          
         ))}
+        
       </ListGroup>
+      
+
     </div>
   );
 }
