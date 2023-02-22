@@ -12,19 +12,18 @@ function TodoItem({ todo, setAsDone }) {
       style={{
         cursor: "pointer",
         display: "flex",
-       // justifyContent: "space-between",
+        justifyContent: "space-between",
       }}
     >
-      
-      <div className="d-flex">
-        <div className="p-2 flex-grow-1" 
+       <div  
           onClick={() => navigate(`/${todo.id}`)} >
           {todo.title}
         </div>
-        <a className="p-2" href={`update/${todo.id}`}>
+      <div >
+        <a href={`update/${todo.id}`}>
             Editar
         </a>
-        <a className="p-2" href="/" onClick={(e) => {
+        <a href="/" onClick={(e) => {
           setAsDone(e, todo.id)
           navigate("/")
         }}>
