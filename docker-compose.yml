@@ -5,10 +5,12 @@ services:
       context: ./backend
     ports:
       - ${PORT_BACK}:${PORT_BACK}
-    env_file: .env
-    command: npm start
+    env_file: ./backend/.env
+    command: sh -c "npx sequelize db:migrate && npm start"
     networks:
       - todo
+    depends_on:
+      - database
 
   database:
     env_file: ./.env

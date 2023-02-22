@@ -2,10 +2,9 @@
   "development": {
     "username": "root",
     "password": "123456",
-    "database": "ToDos",
+    "database": "todo",
     "host": "database",
-    "dialect": "mysql",
-    "logging": false
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
