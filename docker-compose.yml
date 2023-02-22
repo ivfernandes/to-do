@@ -23,6 +23,15 @@ services:
       - mysql_config:/etc/mysql
     networks:
       - todo
+      
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - ${PORT_PMA}:80
+    environment:
+      - PMA_ARBITRATY=1
+    networks:
+      - todo
 networks:
   todo:
 volumes:

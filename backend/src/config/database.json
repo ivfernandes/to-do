@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "123456",
-    "database": "todo",
+    "database": "ToDos",
     "host": "database",
     "dialect": "mysql",
     "logging": false
