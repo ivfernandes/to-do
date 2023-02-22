@@ -34,6 +34,19 @@ services:
       - PMA_ARBITRATY=1
     networks:
       - todo
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - ${PORT_FRONT}:${PORT_FRONT}
+    volumes:
+      - ./frontend:/usr/src/app
+    environment:
+      - NODE_ENV=development
+    networks:
+      - todo
+
 networks:
   todo:
 volumes:
