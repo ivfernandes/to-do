@@ -3,8 +3,14 @@ import Card from 'react-bootstrap/Card';
 import { useParams, useNavigate } from 'react-router-dom';
 import React from 'react'
 import { Button } from 'react-bootstrap';
+import Modal from 'react-bootstrap/Modal';
 
 function TodoDetails() {
+  //modal de excluir 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
     const [todo, setTodo] = useState({});
     const { id } = useParams();
     const navigate = useNavigate();
@@ -51,8 +57,27 @@ function TodoDetails() {
           }}>
              <Card.Link href="#" onClick={setAsDone}> Voltar </Card.Link>
              
-            <Button onClick={deleteToDo} variant="danger"> Excluir </Button>
+            <Button onClick={handleShow} variant="danger"> Excluir </Button>
           </div>
+          <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Excluir Tarefa</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Você tem certeza que deseja excluir essa tarefa?
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Voltar
+          </Button>
+          <Button variant="primary" onClick={deleteToDo} > Excluir </Button>
+        </Modal.Footer>
+      </Modal>
         </Card.Body>
       </Card>
     );
