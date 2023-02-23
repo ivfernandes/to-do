@@ -1,11 +1,11 @@
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Button} from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import TodoUpdate from "../TodoItem/TodoUpdate";
+
 
 function TodoItem({ todo, setAsDone }) {
   const navigate = useNavigate();
-  const handleClick = () => {
-    navigate(`/${todo.id}`);
-  };
+  
 
   return (
     <ListGroup.Item
@@ -14,12 +14,23 @@ function TodoItem({ todo, setAsDone }) {
         display: "flex",
         justifyContent: "space-between",
       }}
-      onClick={handleClick}
     >
-      <div>{todo.title}</div>
-      <a href="/" onClick={(e) => setAsDone(e, todo.id)}>
-        Done
-      </a>
+       <div  
+          onClick={() => navigate(`/${todo.id}`)} >
+          {todo.title}
+        </div>
+      <div >
+        <a href={`update/${todo.id}`}>
+            Editar
+        </a>
+        <a href="/" onClick={(e) => {
+          setAsDone(e, todo.id)
+          navigate("/")
+        }}>
+          Done
+        </a>
+      </div>
+      
     </ListGroup.Item>
   );
 }

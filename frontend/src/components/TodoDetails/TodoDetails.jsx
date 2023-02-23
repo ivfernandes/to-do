@@ -49,8 +49,9 @@ function TodoDetails() {
             justifyContent: "space-between",
             alignItems: "center",
           }}>
-             <Card.Link href="#" onClick={setAsDone}> OK </Card.Link>
-            <Button onClick={deleteToDo} variant="danger"> Deletar </Button>
+             <Card.Link href="#" onClick={setAsDone}> Voltar </Card.Link>
+             
+            <Button onClick={deleteToDo} variant="danger"> Excluir </Button>
           </div>
         </Card.Body>
       </Card>
