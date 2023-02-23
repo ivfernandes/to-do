@@ -27,12 +27,16 @@ function TodoItem({ todo, setAsDone }) {
           {todo.title}
         </div>
       <div >
+        <a href={`/${todo.id}`}>
+            Ver
+        </a>
+        {'  '}
         <a href={`update/${todo.id}`}>
             Editar
         </a>
         {'  '}
         <Card.Link  onClick={handleShow}>
-          Feito
+          Concluir
         </Card.Link>
         <Modal
         show={show}
