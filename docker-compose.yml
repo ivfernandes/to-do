@@ -1,0 +1,54 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - ${PORT_BACK}:${PORT_BACK}
+    env_file: ./backend/.env
+    command: sh -c "npx sequelize db:migrate && npm start"
+    networks:
+      - todo
+    depends_on:
+      - database
+
+  database:
+    env_file: ./.env
+    image: mysql:8.0
+    ports:
+      - ${PORT_MYSQL}:3306
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mysql:/var/lib/mysql
+      - mysql_config:/etc/mysql
+    networks:
+      - todo
+      
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - ${PORT_PMA}:80
+    environment:
+      - PMA_ARBITRATY=1
+    networks:
+      - todo
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - ${PORT_FRONT}:${PORT_FRONT}
+    volumes:
+      - ./frontend:/usr/src/app
+    environment:
+      - NODE_ENV=development
+    networks:
+      - todo
+
+networks:
+  todo:
+volumes:
+  mysql:
+  mysql_config:

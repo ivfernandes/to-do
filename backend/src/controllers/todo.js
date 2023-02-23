@@ -1,7 +1,7 @@
 const todo = require("../models/todo");
 const models = require("../models/index")
 
-const ToDoRepository = models.ToDo;
+const ToDoRepository = models.ToDos;
 
 const index = async (req, res) => {
   try {
